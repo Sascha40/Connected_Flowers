@@ -1,0 +1,331 @@
+/* GENERAL */
+
+body,html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HEADER */
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 1px 20px rgb(161, 161, 161);
+}
+
+li{
+    list-style: none;
+    display: inline;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+ul a{
+    color: black;
+}
+
+header a:hover{
+    color: #24b655;
+}
+
+
+h1{
+    font-size: 4vw;
+    font-family: 'Lobster', cursive;
+    color: #000;
+}
+
+/* HOME PAGE */
+
+
+#contain_home{
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+#contain_home h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+#contain_home a{
+    color: #fff;
+}
+
+#contain_home img{
+    width: 300px;
+}
+
+#home_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+/* ERROR */
+
+#title_error{
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+#contain_error_image{
+    width: 100%;
+    text-align: center;
+    margin-top: 150px;
+}
+
+#contain_error_image img{
+    width: 200px;
+}
+
+#button_error{
+    margin-top: 50px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    padding: 5px;
+    border: 2px solid #6116b8;
+    background-color: #fff;
+    color: #6116b8;
+}
+
+#button_error:hover a:hover{
+    background-color: #6116b8;
+    color: #fff;
+}
+
+#button_error{
+    color: #6116b8;
+}
+
+/* Plants list */
+#title_plants_list{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 50px;
+}
+#contain_plants{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+} 
+
+.plant{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2px auto;
+    background-color: #e7e7e7;
+    border-radius: 5px;
+}
+
+.plant a{
+    color: #24b655;
+}
+
+#add_plant{
+    color: #24b655;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 2px #24b655 solid;
+    padding: 5px;
+}
+
+#add_plant:hover{
+    background-color: #24b655;
+    color: #fff;
+}
+
+#contain_button{
+    margin-left: 45%;
+}
+
+
+
+/*  INFOS PLANT PAGE */
+
+#title_plant{
+    font-size: 45px;
+    text-align: center;
+}
+
+#contain_block{
+    margin-top: 100px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#text_block{
+    width: 40%;
+}
+
+#contain_image{
+    width: 40%;
+}
+
+#contain_image img{
+    width: 100%;
+}
+
+/* ADD PLANT PAGE */
+
+#contain_add_plant{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#contain_add_plant img{
+    width: 60%;
+}
+
+#form_add_plant{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+#form_add_plant input{
+    width: 450px;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 7px;
+    border-radius: 5px;
+    border: 2px #d8d8d8 solid;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 16px;
+}
+
+#form_add_plant textarea{
+    width: 450px;
+    height: 80px;
+    padding: 10px;
+    margin-bottom: 7px;
+    border-radius: 5px;
+    border: 2px #d8d8d8 solid;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 16px;
+}
+
+#add_plant_button{
+    color: #24b655;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 2px #24b655 solid;
+    padding: 5px;
+    width: 100px;
+}
+
+#add_plant_button:hover{
+    color: #fff;
+    background-color: #24b655;
+}
+
+#add_plant_title{
+    text-align: center;
+    font-size:50px;
+}
+
+/* PLANTS SELECT PAGE */
+
+#title_plants_select{
+    text-align: center;
+    font-size: 50px;
+}
+
+/* DATA PAGE */
+
+#title_data{
+    text-align: center;
+    font-size: 50px;
+}
+
+#contain_data{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+#contain_data h3{
+    font-size: 25px;
+}
+
+#luminosity{
+    width:20%;
+    height: 200px;
+    border: 2px #7e7e7e solid;
+    border-radius: 5px;
+    box-shadow: 0px 1px 20px rgb(161, 161, 161);
+}
+
+#temperature{
+    width:20%;
+    height: 200px;
+    border: 2px #7e7e7e solid;
+    border-radius: 5px;
+    box-shadow: 0px 1px 20px rgb(161, 161, 161);
+}
+
+#floorhumidity{
+    width:20%;
+    height: 200px;
+    border: 2px #7e7e7e solid;
+    border-radius: 5px;
+    box-shadow: 0px 1px 20px rgb(161, 161, 161);
+}
+
+#pression{
+    width:20%;
+    height: 200px;
+    border: 2px #7e7e7e solid;
+    border-radius: 5px;
+    box-shadow: 0px 1px 20px rgb(161, 161, 161);    
+}
+
+#table_data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#indications{
+    width: 90%;
+    background-color:#e7e7e7;
+    color: #24b655;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.data{
+    width: 90%;
+    background-color:#e7e7e7;
+    color: #000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+}
