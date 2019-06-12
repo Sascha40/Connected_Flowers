@@ -1,6 +1,6 @@
 <?php
 
-// Inclusion of configurations and classes files
+//Inclusion of configurations and classes files
 include_once '_config/config.php';
 include_once '_functions/functions.php';
 include_once '_classes/Autoloader.php';
@@ -26,4 +26,4 @@ if (in_array($page . '_controller.php', $allPages)) {
 }
 else {
 	include_once 'views/error_view.php';
-}
+} 

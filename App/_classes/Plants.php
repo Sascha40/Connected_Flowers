@@ -25,9 +25,16 @@ class Plants{
         global $db;
 
         $idPlant = htmlspecialchars($idPlant);
-        $req = $db->execute('DELETE FROM plants WHERE id=?',[$idPlant]);
 
-        return $req;
+        $req = $db->execute('DELETE FROM plants_select WHERE id_plant = ?', [$idPlant]);
+
+        if ($req) {
+            $req2 = $db->execute('DELETE FROM plants WHERE id=?',[$idPlant]);
+            return $req2;
+        }
+        else {
+            return false;
+        }
     }
 
     // Function to delete one plant by ID on plants_select table
@@ -95,7 +102,7 @@ class Plants{
     public static function getDatas($id_plant_select){
         global $db;
 
-        $req = $db->fetch('SELECT temperature,luminosity,pression,floor_humidity,air_humidity FROM data_sensor d INNER JOIN plants_select p on d.id_plant_select = ?',[$id_plant_select],true);
+        $req = $db->fetch('SELECT data_date,temperature,luminosity,pression,floor_humidity,air_humidity FROM data_sensor WHERE id_plant_select = ? ORDER BY data_date',[$id_plant_select],true);
 
         return $req;
     }

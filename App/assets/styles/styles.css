@@ -122,6 +122,7 @@ h1{
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    margin-bottom: 50px;
 } 
 
 .plant{
@@ -269,6 +270,10 @@ h1{
     text-align: center;
 }
 
+#contain_data p{
+    font-size: 40px;
+}
+
 #contain_data h3{
     font-size: 25px;
 }
@@ -306,26 +311,19 @@ h1{
 }
 
 #table_data{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    margin:50px 0;
 }
 
-#indications{
-    width: 90%;
-    background-color:#e7e7e7;
-    color: #24b655;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+#table_data th{
+    background-color: #979797;
 }
 
-.data{
-    width: 90%;
-    background-color:#e7e7e7;
-    color: #000;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;    
+#table_data td{
+    background-color: #d8d8d8;
+}
+
+#table_data tr{
+    height: 40px;
 }
