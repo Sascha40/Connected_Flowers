@@ -1,22 +1,20 @@
 from board import SCL, SDA, D23     # APDS9960 lumiere, couleur, pression
-from adafruit_apds9960.apds9960 import APDS9960# APDS9960 
-from adafruit_apds9960 import colorutility 
+from adafruit_apds9960 import *
+import RPi.GPIO as GPIO
 import smbus2   # BME 280
 import bme280   # BME 280 temperature et humidite
 import busio    # APDS9960
 import digitalio    # APDS9960
 import time     # APDS9960
 import datetime
-import mysql.connector as mariadb
+import mysql.connector as mysql
 
 
 now_time = datetime.datetime.now()
-now_time_format = now_time.strftime("A %T le %d:%m:%Y")
-print(now_time_format)
 
 ### db mariadb connect  ###
-mariadb_connection = mariadb.connect(database='dbplanteco', user='root', password='root')
-cursor = mariadb_connection.cursor()
+mysql_connection = mysql.connect(database='dbplanteco', user='root', password='root')
+cursor = mysql_connection.cursor()
 
 ### Capteur BME 280, Temperature / Pression / Humidité de l'air/Pression
 port = 1
@@ -37,6 +35,13 @@ apds.enable_color = True
 while not apds.color_data_ready:
     time.sleep(0.005)
 
+# Capteur sol
+
+channel = 21
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(channel, GPIO.IN)
+
+
 ### donnees ###
 r, g, b, c = apds.color_data   
 temperature = data.temperature  #en degre celsius
@@ -45,6 +50,18 @@ humidite_air = data.humidity #en pourcent
 temperature_lumiere = colorutility.calculate_color_temperature(r, g, b) #Kelvin degrees
 lumin_lux = colorutility.calculate_lux(r, g, b)
 data2 = [temperature, now_time_format]
+
+
+
+def callback(channel):
+    if GPIO.input(channel):
+        print("Water Detected!")
+    else:
+        print("Water Detected!")
+ 
+GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)  # let us know when the pin goes HIGH or LOW
+GPIO.add_event_callback(channel, callback)  # assign function to GPIO PIN, Run function on change
+ 
 
 
 #print("r: {}, g: {}, b: {}, c: {}".format(r, g, b, c))
@@ -58,6 +75,6 @@ cursor.execute("INSERT INTO lumiere(valeur,date) VALUES(%s,%s)", (temperature_lu
 cursor.execute("INSERT INTO humidite_air(valeur,date) VALUES(%s,%s)", (humidite_air, now_time))
 #cursor.execute("INSERT INTO humidite_sol(valeur,date) VALUES(%s,%s)", (humidite, now_time))
 cursor.execute("INSERT INTO pression(valeur,date) VALUES(%s,%s)", (pression, now_time))
-mariadb_connection.commit()
+mysql_connection.commit()
 cursor.close()
-mariadb_connection.close()
+mysql_connection.close()
